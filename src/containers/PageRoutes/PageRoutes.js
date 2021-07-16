@@ -1,18 +1,44 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Workspace from '../../components/Workspace/Workspace';
 
 const PageRoutes = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/xx" exact render={Workspace} />
-        <Route path="/workspace1" exact render={Workspace} />
-        <Route path="/analysis" exact render={Workspace} />
-      </Switch>
-    </Router>
+    <Switch>
+      <Redirect exact from="/" to="/workspace1" />
+      <Route
+        path="/workspace1"
+        exact
+        render={(props) => <Workspace {...props} />}
+      />
+      <Route
+        path="/workspace2"
+        exact
+        render={(props) => <Workspace {...props} />}
+      />
+      <Route
+        path="/workspace4"
+        exact
+        render={(props) => <Workspace {...props} />}
+      />
+      <Route
+        path="/workspace5"
+        exact
+        render={(props) => <Workspace {...props} />}
+      />
+      <Route
+        path="/workspace6"
+        exact
+        render={(props) => <Workspace {...props} />}
+      />
+      <Route
+        path="/analysis"
+        exact
+        render={(props) => <Workspace {...props} />}
+      />
+    </Switch>
   );
 };
 

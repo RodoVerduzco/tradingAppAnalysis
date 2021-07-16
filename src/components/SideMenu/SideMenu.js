@@ -12,6 +12,7 @@ import { useStyles } from './styled';
 
 const SideMenu = () => {
   const classes = useStyles();
+
   const sideBar = { open: true };
 
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import TopMenu from '../../containers/TopMenu/TopMenu';
 import PageRoutes from '../../containers/PageRoutes/PageRoutes';
 import SideMenu from '../SideMenu/SideMenu';
-import Workspace from '../Workspace/Workspace';
-
 import { useBaseTheme } from '../../core/theme/baseTheme';
 
 const Layout = () => {
@@ -12,10 +12,11 @@ const Layout = () => {
 
   return (
     <div className={classes.root}>
-      <TopMenu />
-      <SideMenu />
-      <PageRoutes />
-      <Workspace />
+      <Router>
+        <TopMenu />
+        <SideMenu />
+        <PageRoutes />
+      </Router>
     </div>
   );
 };

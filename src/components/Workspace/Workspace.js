@@ -1,12 +1,15 @@
 import React from 'react';
 
+import { useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { useBaseTheme } from '../../core/theme/baseTheme';
 
 const Workspace = () => {
   const classes = useBaseTheme();
-  console.log(classes);
+  const history = useHistory();
+
+  console.log(history);
 
   return (
     <main
