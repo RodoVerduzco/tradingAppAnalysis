@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
+import Analysis from '../../components/AnalysisPage/Analysis';
 
 import Workspace from '../../components/Workspace/Workspace';
 
@@ -36,7 +37,7 @@ const PageRoutes = () => {
       <Route
         path="/analysis"
         exact
-        render={(props) => <Workspace {...props} />}
+        render={(props) => <Analysis {...props} />}
       />
     </Switch>
   );

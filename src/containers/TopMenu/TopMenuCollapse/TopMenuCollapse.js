@@ -7,9 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import { useStyles } from '../styled';
 import NotificationsIcon from '../NotificationIcon/NotificationIcon';
 import Profile from '../Profile/Profile';
-import SearchBar from '../../../components/SearchBar/SearchBar';
+import SearchBar from '../../SearchBar/SearchBar';
 import PageTitle from '../../../components/PageTitle/PageTitle';
-import SearchIcon from '@material-ui/icons/Search';
 
 const TopMenuCollapse = () => {
   const classes = useStyles();
@@ -34,7 +33,7 @@ const TopMenuCollapse = () => {
   const SmallMenu = () => (
     <>
       <PageTitle centered />
-      <SearchIcon />
+      <SearchBar />
     </>
   );
   return (
