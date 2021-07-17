@@ -1,12 +1,15 @@
 import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
-import { Avatar, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 import { useStyles } from './styled';
+import ProfileAvatar from '../../../components/ProfileAvatar/ProfileAvatar';
+import { useProfile } from '../../../core/contexts/ProfileContext';
 
 const ProfileInfo = () => {
   const classes = useStyles();
+  const profile = useProfile();
 
   return (
     <Grid
@@ -16,15 +19,19 @@ const ProfileInfo = () => {
       className={classes.profileInfo}
     >
       <Grid item md={12}>
-        <Avatar className={classes.avatar}>TR</Avatar>
+        <ProfileAvatar
+          className={classes.avatar}
+          image={profile.image}
+          name={profile.name}
+        />
       </Grid>
 
       <Grid item md={12}>
-        <Typography className={classes.name}>The Rock </Typography>
+        <Typography className={classes.name}>{profile.name}</Typography>
       </Grid>
 
       <Grid item md={12}>
-        <Typography className={classes.email}>therock22@mxmarket.mx</Typography>
+        <Typography className={classes.email}>{profile.email}</Typography>
       </Grid>
     </Grid>
   );

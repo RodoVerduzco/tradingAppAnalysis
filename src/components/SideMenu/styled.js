@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    [theme.breakpoints.down('sm')]: {
+      top: theme.mixins.toolbar.minHeight + 1,
+    },
   },
   drawerClose: {
     background: '#000000 !important',
@@ -19,8 +22,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: 'hidden',
-    width: theme.spacing(6) + 1,
-    maxWidth: '65px',
+    width: '0px !important',
     [theme.breakpoints.up('sm')]: {
       width: theme.spacing(9) + 1,
     },

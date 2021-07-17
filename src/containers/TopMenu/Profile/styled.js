@@ -9,6 +9,9 @@ const useStyles = makeStyles(() => ({
   chevronIcon: {
     color: '#848484 !important',
   },
+  profileButton: {
+    marginRight: '2rem',
+  },
 }));
 
 export { useStyles };

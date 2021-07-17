@@ -1,9 +1,19 @@
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   sideMenuList: {
-    marginTop: '6rem',
+    marginTop: '4rem',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '1rem',
+    },
+  },
+  listItem: {
+    fontSize: '20px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '12px !important',
+      color: 'orange !important',
+    },
   },
 }));
 
@@ -11,7 +21,6 @@ const NavItem = withStyles({
   root: {
     color: 'white',
     textAlign: 'left !important',
-    fontSize: '20px',
     borderLeft: `0.4rem solid black !important`,
   },
   selected: (props) => ({

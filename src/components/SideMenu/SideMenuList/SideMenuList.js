@@ -12,7 +12,9 @@ const SideMenuList = () => {
   const classes = useStyles();
   const history = useHistory();
 
-  const [currentPage, setCurrentPage] = useState(history.location.pathname);
+  const [currentPage, setCurrentPage] = useState(
+    history.location.pathname.substring(1)
+  );
 
   const changePage = (page) => () => {
     setCurrentPage(page);
@@ -40,7 +42,11 @@ const SideMenuList = () => {
 
   return (
     <List component="nav" className={classes.sideMenuList}>
-      <NavItems selectedPage={currentPage} changePage={changePage} />
+      <NavItems
+        className={classes.listItem}
+        selectedPage={currentPage}
+        changePage={changePage}
+      />
     </List>
   );
 };

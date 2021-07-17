@@ -3,29 +3,28 @@ import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import clsx from 'clsx';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
 
+import { useSideBar } from '../../core/contexts/SideBarContext';
 import logo from '../../assets/logo.png';
-
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 import SideMenuList from './SideMenuList/SideMenuList';
 import { useStyles } from './styled';
 
 const SideMenu = () => {
   const classes = useStyles();
-
-  const sideBar = { open: true };
+  const drawer = useSideBar();
 
   return (
     <Drawer
       variant="permanent"
       className={clsx(classes.drawer, {
-        [classes.drawerOpen]: sideBar.open,
-        [classes.drawerClose]: !sideBar.open,
+        [classes.drawerOpen]: drawer,
+        [classes.drawerClose]: !drawer,
       })}
       classes={{
         paper: clsx({
-          [classes.drawerOpen]: sideBar.open,
-          [classes.drawerClose]: !sideBar.open,
+          [classes.drawerOpen]: drawer,
+          [classes.drawerClose]: !drawer,
         }),
       }}
       PaperProps={{ className: classes.drawer }}
