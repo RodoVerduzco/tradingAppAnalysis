@@ -23,7 +23,12 @@ const CardContent = ({ isExpanded, cardData }) => {
       );
 
       cardContent.push(
-        <Grid item xs={'auto'} className={classes.dataDesign}>
+        <Grid
+          item
+          xs={'auto'}
+          className={classes.dataDesign}
+          key={`card-content-${elementFormat.label}`}
+        >
           <Typography className={classes.title}>
             {elementFormat.label}
           </Typography>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Analysis from '../../components/AnalysisPage/Analysis';
+import Analysis from '../AnalysisPage/Analysis';
 
 import Workspace from '../../components/Workspace/Workspace';
 

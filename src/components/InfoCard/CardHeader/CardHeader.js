@@ -25,11 +25,16 @@ const CardHeader = ({
 }) => {
   const classes = useStyles();
 
-  console.log(expandedButtons);
-
   const ShowChart = () => (
     <HeaderButton
-      icon={<ShowChartIcon className={classes.infoButton} />}
+      icon={
+        <ShowChartIcon
+          className={clsx({
+            [classes.infoButton]: !expandedButtons.expandedGraph,
+            [classes.infoButtonClicked]: expandedButtons.expandedGraph,
+          })}
+        />
+      }
       onClick={handleExpandGraph}
     />
   );

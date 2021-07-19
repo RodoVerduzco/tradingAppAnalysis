@@ -18,7 +18,7 @@ const PercentChange = (value) => {
     return (
       <span className={classes.negative}>
         <span className={classes.negativeSign}>-</span>
-        {value}%
+        {Math.abs(value)}%
       </span>
     );
   } else {
@@ -30,7 +30,7 @@ PercentChange.propTypes = {
   value: PropTypes.number,
 };
 
-PercentChange.defaultValue = {
+PercentChange.defaultProps = {
   value: 0,
 };
 

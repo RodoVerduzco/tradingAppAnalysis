@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InfoCard from '../InfoCard/InfoCard';
+import InfoCard from '../../components/InfoCard/InfoCard';
 
 const baseCapitalExpenses = {
   header: {
@@ -19,6 +19,16 @@ const baseCapitalExpenses = {
     endDate: '01/01/2021',
     periodicity: 'Mensual',
   },
+  graphData: [
+    {
+      label: '01/01/2019',
+      value: 166218.0,
+    },
+    {
+      label: '01/02/2019',
+      value: 287721.6,
+    },
+  ],
 };
 
 const CapitalExpensesCard = () => {
