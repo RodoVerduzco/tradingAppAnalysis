@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
+import { Typography, Hidden } from '@material-ui/core';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import ListIcon from '@material-ui/icons/List';
 import DragHandleIcon from '@material-ui/icons/DragHandle';
@@ -72,21 +72,31 @@ const CardHeader = ({
         <Typography className={classes.infoCardTitle}>{title} </Typography>
       </Grid>
 
-      <div className={classes.separator} />
-      <LastValue value={lastValue} circleClassName={classes.circleIndicator} />
+      <Hidden xsDown>
+        <div className={classes.separator} />
+        <LastValue
+          value={lastValue}
+          circleClassName={classes.circleIndicator}
+        />
 
-      <div className={classes.separator} />
-      <Grid item>
-        <LastDate date={lastDate} />
-      </Grid>
+        <div className={classes.separator} />
+        <Grid item>
+          <LastDate date={lastDate} />
+        </Grid>
 
-      <div className={classes.separator} />
-      <img src={GraphImage} className={classes.graphImage} />
+        <div className={classes.separator} />
+        <img src={GraphImage} className={classes.graphImage} />
+      </Hidden>
 
       <ShowChart />
       <ShowTable />
-      <DragCardButton />
-      <OpenCloseCardButton />
+
+      <div className={classes.marginLeftAuto}>
+        <Hidden xsDown>
+          <DragCardButton />
+        </Hidden>
+        <OpenCloseCardButton />
+      </div>
     </Grid>
   );
 };

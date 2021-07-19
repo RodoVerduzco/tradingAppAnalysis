@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const TITLE_CONSTANTS = {
   SG46: 'Gasto total',
   SG47: 'Gasto programable',
@@ -17,4 +19,25 @@ const TITLE_CONSTANTS = {
   SG72: 'Costo financiero',
 };
 
-export { TITLE_CONSTANTS };
+const SERIES = [
+  'SG46',
+  'SG47',
+  'SG44',
+  'SG71',
+  'SG73',
+  'SG74',
+  'SG48',
+  'SG49',
+  'SG69',
+  'SG52',
+  'SG75',
+  'SG76',
+  'SG53',
+  'SG42',
+  'SG45',
+  'SG72',
+];
+
+const START_DATE = '2019-01-01';
+const END_DATE = moment().format('YYYY-MM-DD');
+export { TITLE_CONSTANTS, SERIES, START_DATE, END_DATE };

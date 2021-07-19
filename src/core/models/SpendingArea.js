@@ -1,4 +1,33 @@
-import { TITLE_CONSTANTS } from '../constants/cardConstants';
+import { TITLE_CONSTANTS } from '../constants/dataConstants';
+import { dataSort } from '../utils/data';
+
+const getSpendingAreas = (dataResponse, metadataResponse) => {
+  let data = dataResponse?.bmx?.series;
+  let metadata = metadataResponse?.bmx?.series;
+  let spendingAreas = [];
+
+  if (!data || !metadata || data.length !== metadata.length) {
+    return [];
+  }
+
+  data.sort(dataSort);
+
+  metadata.sort((a, b) => {
+    if (a.idSerie < b.idSerie) {
+      return -1;
+    }
+    if (a.idSerie > b.idSerie) {
+      return 1;
+    }
+    return 0;
+  });
+
+  for (let i = 0; i < data.length; i++) {
+    spendingAreas.push(getSpendingArea(data[i], metadata[i]));
+  }
+
+  return spendingAreas;
+};
 
 const getCardHeader = (data, title) => {
   let length = data.datos.length;
@@ -15,9 +44,11 @@ const getCardContent = (title, header, spendingData, metadata) => {
   let length = spendingData.length;
 
   if (length >= 2) {
-    let lastInfo = parseFloat(spendingData[length - 1].dato);
-    let penultimateInfo = parseFloat(spendingData[length - 2].dato);
-    change = ((lastInfo - penultimateInfo) / penultimateInfo) * 100;
+    console.log(spendingData);
+    let lastInfo = spendingData[length - 1].value;
+    let penultimateInfo = spendingData[length - 2].value;
+    console.log(lastInfo, penultimateInfo);
+    change = 100 * ((lastInfo - penultimateInfo) / penultimateInfo);
   }
 
   return {
@@ -44,15 +75,11 @@ const getGraphData = (data) => {
 };
 
 const getSpendingArea = (data, metadata) => {
-  console.log(data.idSerie, metadata.idSerie);
   if (data.idSerie == metadata.idSerie) {
     const title = TITLE_CONSTANTS[data.idSerie];
-
-    console.log(data.datos);
     const graphData = getGraphData(data.datos);
-    console.log(graphData);
     const header = getCardHeader(data, title);
-    const content = getCardContent(title, header, data.datos, metadata);
+    const content = getCardContent(title, header, graphData, metadata);
 
     return {
       header: header,
@@ -60,40 +87,8 @@ const getSpendingArea = (data, metadata) => {
       graphData: graphData,
     };
   } else {
-    console.log('not same');
+    return null;
   }
-
-  console.log(data);
-  console.log(metadata);
 };
-/*
-header: {
-    title: 'Gasto de Capital',
-    lastValue: '23,252',
-    lastDate: '21/05/2021',
-  },
-  content: {
-    serieId: 'SG73',
-    title: 'Materiales y suministros',
-    lastDate: '01/02/2021',
-    lastValue: '2,104.1',
-    units: 'Millones de pesos',
-    change: 146.9,
-    startDate: '01/01/1977',
-    endDate: '01/01/2021',
-    periodicity: 'Mensual',
-  },
-  graphData: [
-    {
-      label: '01/01/2019',
-      value: 166218.0,
-    },
-    {
-      label: '01/02/2019',
-      value: 287721.6,
-    },
-  ],
 
-*/
-
-export default getSpendingArea;
+export { getSpendingAreas };

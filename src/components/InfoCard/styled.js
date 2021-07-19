@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     color: 'white !important',
     background: '#202837',
@@ -17,6 +17,10 @@ const useStyles = makeStyles(() => ({
   },
   infoCardTitle: {
     fontSize: '16px',
+    marginRight: '0.3rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12px',
+    },
   },
   separator: {
     height: '1rem',

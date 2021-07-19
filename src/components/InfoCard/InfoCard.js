@@ -11,7 +11,7 @@ import GraphContent from './GraphContent/GraphContent';
 const InfoCard = ({ info }) => {
   const classes = useStyles();
   const [expandedCard, setExpandedCard] = useState(false);
-  const [expandedGraph, setExpandedGraph] = useState(true);
+  const [expandedGraph, setExpandedGraph] = useState(false);
 
   const handleExpandCard = () => setExpandedCard((prev) => !prev);
   const handleExpandGraph = () => setExpandedGraph((prev) => !prev);
