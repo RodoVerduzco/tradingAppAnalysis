@@ -26,7 +26,7 @@ const AnalysisPage = () => {
       getSeries(SERIES, START_DATE, END_DATE),
       getSeriesMetadata(SERIES),
     ]).then((values) => {
-      let spendingAreas = getSpendingAreas(...values);
+      const spendingAreas = getSpendingAreas(...values);
       setSeriesData(spendingAreas);
     });
   }, []);
