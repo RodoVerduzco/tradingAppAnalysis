@@ -1,23 +1,26 @@
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
-  sideMenuList: {
-    marginTop: '6rem',
+  topContainer: {
+    marginTop: '2rem',
+    background: '#202837',
+  },
+  topContainerTitle: {
+    fontTransform: 'none',
+    fontSize: '22px',
+    color: 'white',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem',
+    marginLeft: '1rem',
+  },
+  cardContainer: {
+    paddingTop: '2rem',
+    paddingBottom: '2rem',
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+    background: '#2D3748',
+    flex: '1 1 auto',
   },
 }));
 
-const NavItem = withStyles({
-  root: {
-    color: 'white',
-    textAlign: 'left !important',
-    fontSize: '20px',
-    borderLeft: `0.4rem solid black !important`,
-  },
-  selected: (props) => ({
-    borderLeft: `0.4rem solid ${props.color} !important`,
-    backgroundColor: '#283141 !important',
-  }),
-})(ListItem);
-
-export { useStyles, NavItem };
+export { useStyles };

@@ -39,7 +39,7 @@ const PageTitle = ({ centered }) => {
 };
 
 PageTitle.propTypes = {
-  centered: PropTypes.boolean,
+  centered: PropTypes.bool,
 };
 
 export default PageTitle;
