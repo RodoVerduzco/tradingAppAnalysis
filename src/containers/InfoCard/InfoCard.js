@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import Card from '@material-ui/core/Card';
-import { CardContent } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import { useStyles } from './styled';
 import CardHeader from './CardHeader/CardHeader';
+import CardContent from './CardContent/CardContent';
 import GraphContent from './GraphContent/GraphContent';
 
 const InfoCard = ({ info }) => {
@@ -24,7 +24,7 @@ const InfoCard = ({ info }) => {
         handleExpandCard={handleExpandCard}
         handleExpandGraph={handleExpandGraph}
       />
-      <CardContent handleExpan={handleExpandCard} isExpanded={expandedCard} />
+      <CardContent isExpanded={expandedCard} cardData={info.content} />
       <GraphContent
         handleExpan={handleExpandGraph}
         isExpanded={expandedGraph}

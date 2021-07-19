@@ -42,7 +42,7 @@ const TopMenuCollapse = () => {
         <BigMenu />
       </Hidden>
 
-      <Hidden smUp style={{ color: 'white' }}>
+      <Hidden smUp>
         <SmallMenu />
       </Hidden>
     </>
