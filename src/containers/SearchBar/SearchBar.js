@@ -29,7 +29,9 @@ const SearchBar = () => {
           <NormalSearchBar />
         </Grid>
       </Hidden>
-      <MobileSearchBar />
+      <Hidden smUp>
+        <MobileSearchBar />
+      </Hidden>
     </>
   );
 };

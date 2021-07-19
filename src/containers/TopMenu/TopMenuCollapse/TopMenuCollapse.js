@@ -13,29 +13,34 @@ import PageTitle from '../../../components/PageTitle/PageTitle';
 const TopMenuCollapse = () => {
   const classes = useStyles();
 
-  const BigMenu = () => (
-    <>
-      <SearchBar />
+  const BigMenu = () => {
+    return (
+      <>
+        <SearchBar />
 
-      <div className={classes.grow} />
+        <div className={classes.grow} />
 
-      <IconButton edge="end">
-        <SettingsIcon color="disabled" className={classes.topMenuIcon} />
-      </IconButton>
+        <IconButton edge="end">
+          <SettingsIcon color="disabled" className={classes.topMenuIcon} />
+        </IconButton>
 
-      <NotificationsIcon />
+        <NotificationsIcon />
 
-      <div className={classes.separator} />
-      <Profile />
-    </>
-  );
+        <div className={classes.separator} />
+        <Profile />
+      </>
+    );
+  };
 
-  const SmallMenu = () => (
-    <>
-      <PageTitle centered />
-      <SearchBar />
-    </>
-  );
+  const SmallMenu = () => {
+    return (
+      <>
+        <PageTitle centered />
+        <SearchBar />
+      </>
+    );
+  };
+
   return (
     <>
       <Hidden xsDown>

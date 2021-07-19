@@ -44,10 +44,8 @@ const getCardContent = (title, header, spendingData, metadata) => {
   let length = spendingData.length;
 
   if (length >= 2) {
-    console.log(spendingData);
     let lastInfo = spendingData[length - 1].value;
     let penultimateInfo = spendingData[length - 2].value;
-    console.log(lastInfo, penultimateInfo);
     change = 100 * ((lastInfo - penultimateInfo) / penultimateInfo);
   }
 
