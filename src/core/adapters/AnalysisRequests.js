@@ -10,6 +10,11 @@ const getURLWithToken = (url) => {
   return `${url}?token=${TOKEN}`;
 };
 
+const getSeriesError = () => {
+  const url = `${BANXICO_API_URL}${BANXICO_SERIES_ENDPOINT}/SG32`;
+  return get(url, { throwHttpErrors: false });
+};
+
 const getSeries = (series, startDate, endDate) => {
   const seriesToGet = series.join(',');
   const url = `${BANXICO_API_URL}${BANXICO_SERIES_ENDPOINT}/${seriesToGet}/datos/${startDate}/${endDate}`;
@@ -24,4 +29,4 @@ const getSeriesMetadata = (series) => {
   return get(COMPLETE_URL).json();
 };
 
-export { getSeries, getSeriesMetadata };
+export { getSeries, getSeriesMetadata, getSeriesError };

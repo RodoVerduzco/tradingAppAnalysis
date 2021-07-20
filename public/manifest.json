@@ -1,6 +1,6 @@
 {
-  "short_name": "Mtrade",
-  "name": "Mtrade",
+  "short_name": "tradingApp",
+  "name": "tradingApp",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
