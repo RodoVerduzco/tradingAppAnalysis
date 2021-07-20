@@ -6,15 +6,16 @@ import { useStyles } from './styled';
 import AppContainer from '../../components/AppContainer/AppContainer';
 import InfoCard from '../../components/InfoCard/InfoCard';
 import { getSpendingAreas } from '../../core/models/SpendingArea';
+import TabularDataMenu from '../../components/TabularDataMenu/TabularDataMenu';
+import {
+  getSeries,
+  getSeriesMetadata,
+} from '../../core/adapters/AnalysisRequests';
 import {
   SERIES,
   START_DATE,
   END_DATE,
 } from '../../core/constants/dataConstants';
-import {
-  getSeries,
-  getSeriesMetadata,
-} from '../../core/adapters/AnalysisRequests';
 
 const AnalysisPage = () => {
   const classes = useStyles();
@@ -39,9 +40,10 @@ const AnalysisPage = () => {
         </Typography>
         <Paper className={classes.cardContainer}>
           {seriesData.map((series, i) => (
-            <InfoCard info={series} key={'series-' + i} />
+            <InfoCard info={series} key={`series-${i}`} index={i} />
           ))}
         </Paper>
+        <TabularDataMenu />
       </Paper>
     </AppContainer>
   );

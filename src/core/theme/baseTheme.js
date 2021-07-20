@@ -33,6 +33,15 @@ const useBaseTheme = makeStyles((theme) => ({
       backgroundColor: '#1A202B',
     },
   },
+  contentShiftLeft: {
+    [theme.breakpoints.up('sm')]: {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginRight: drawerWidth,
+    },
+  },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',

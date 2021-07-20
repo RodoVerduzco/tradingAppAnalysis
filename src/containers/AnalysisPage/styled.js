@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
   topContainer: {
     marginTop: '2rem',
+    marginBottom: '4rem',
     background: '#202837',
   },
   topContainerTitle: {
